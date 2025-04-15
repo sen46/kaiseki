@@ -1,11 +1,10 @@
 // 問1-4
 #include <iostream>
-using namespace std;
 
 // 問題を解く関数
 void solve();
 // 文字列を反転する関数
-void my_reverse(string &s);
+void my_reverse(std::string &s);
 
 int main()
 {
@@ -18,9 +17,9 @@ void solve()
 {
     // 変数の宣言や初期化
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    string ans = "";
+    std::string ans = "";
 
     // 2進数に変換
     while (n > 0)
@@ -35,7 +34,7 @@ void solve()
     printf("%s\n", &ans[0]);
 }
 
-void my_reverse(string &ans)
+void my_reverse(std::string &ans)
 {
     int l = 0;
     int r = ans.size() - 1;

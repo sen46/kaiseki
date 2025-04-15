@@ -1,6 +1,6 @@
-#include <cstdio>
+// 宿題
 #include <stdio.h>
-#include <math.h>
+#include <cmath>
 #include <vector>
 
 int main()
