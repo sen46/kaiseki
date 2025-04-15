@@ -19,7 +19,7 @@ int main()
         printf("a_%d = %.18e\n", i, a[i]);
     }
 
-    // No2の答え
+    // No3の答え
     for (int i = 24; i < 30; i++)
     {
         printf("|a_%d - a| = %.2e\n", i, abs(a[i] - sqrt(3)));
