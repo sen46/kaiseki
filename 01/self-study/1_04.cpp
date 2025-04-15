@@ -1,24 +1,27 @@
 // 問1-4
-#include <iostream>
+// 関数を作成しなさいという問題なので、main関数は不要のためコメントアウト
+// コンパイルする時はメイン関数のコメントアウトを消去すること
+#include <stdio.h>
+#include <string>
 
 // 問題を解く関数
-void solve();
+void solve(int n);
 // 文字列を反転する関数
 void my_reverse(std::string &s);
 
+/*
 int main()
 {
-    solve();
+    int n;
+    n = 10; // nに好きな整数を代入させる.
+    solve(n);
 
     return (0);
 }
+*/
 
-void solve()
+void solve(int n)
 {
-    // 変数の宣言や初期化
-    int n;
-    std::cin >> n;
-
     std::string ans = "";
 
     // 2進数に変換
