@@ -1,3 +1,4 @@
+// 授業内課題
 #include <stdio.h>
 #include <vector>
 
