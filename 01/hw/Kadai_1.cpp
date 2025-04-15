@@ -10,7 +10,7 @@ int main()
 
     for (int i = 1; i < 30; i++)
     {
-        a[i] = 1 + ((double)2 / (double)(1 + a[i - 1]));
+        a[i] = 1 + ((double)2 / (1 + a[i - 1]));
     }
 
     // No1の答え
