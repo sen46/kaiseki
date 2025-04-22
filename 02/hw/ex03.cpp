@@ -17,11 +17,11 @@ int main()
     printf("n = %dのときπ = %.16e\n", n, f1(n));
 
     printf("(2)の答え\n");
-    n = 20;
+    n = 10;
     printf("n = %dのときπ = %.16e\n", n, f2(n));
     // n = 30;
     // printf("n = %dのときπ = %.16e\n", n, f2(n));
-    n = 40;
+    n = 30;
     printf("n = %dのときπ = %.16e\n", n, f2(n));
 }
 
