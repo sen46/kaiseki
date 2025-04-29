@@ -32,6 +32,7 @@ void NewtonMethod(double x0)
 	}
 	printf("収束しない\n");
 }
+
 int main()
 {
 	NewtonMethod(2.0);
