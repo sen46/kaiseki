@@ -9,7 +9,7 @@ int main()
     double l = (a + b) + c;
     double r = a + (b + c);
 
-    printf("l = %.16e\nr = %.16e", l, r);
+    printf("l = %.16e\nr = %.16e\n", l, r);
     // cout << "l = " << l << endl;
     // cout << "r = " << r << endl;
     return (0);
