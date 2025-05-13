@@ -58,8 +58,8 @@ int main()
 	}
 
 	cout << "問2" << endl;
-	printf("Newton\nN - 3 = %.12e\nN - 2 = %.12e\nN - 1 = %.12e\n", abs(n[1] - n[4]), abs(n[2] - n[4]), abs(n[3] - n[4]));
-	printf("Secant\nN - 3 = %.12e\nN - 2 = %.12e\nN - 1 = %.12e\n", abs(s[1] - s[4]), abs(s[2] - s[4]), abs(s[3] - s[4]));
+	printf("Newton\nN - 3 = %.2e\nN - 2 = %.2e\nN - 1 = %.2e\n", abs(n[1] - n[4]), abs(n[2] - n[4]), abs(n[3] - n[4]));
+	printf("Secant\nN - 3 = %.2e\nN - 2 = %.2e\nN - 1 = %.2e\n", abs(s[3] - s[6]), abs(s[4] - s[6]), abs(s[5] - s[6]));
 
 	return (0);
 }
