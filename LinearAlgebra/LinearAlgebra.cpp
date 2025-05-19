@@ -1,5 +1,4 @@
 #include "LinearAlgebra.hpp"
-#include <cmath>
 
 void	PrintVector(vector<double> vec)
 {
