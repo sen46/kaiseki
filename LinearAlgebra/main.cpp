@@ -1,3 +1,4 @@
+// ライブラリの使用方法
 #include "LinearAlgebra.hpp"
 
 using vd=vector<double>;

@@ -1,4 +1,5 @@
 #include "LinearAlgebra.hpp"
+#include <cstdlib>
 
 void	PrintVector(vector<double> vec)
 {
@@ -161,4 +162,29 @@ vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double>
 	vector<double> x(n);
 	x = BackwardSubstitution(A, b);
 	return (x);
+}
+
+vector<vector<double>>	MatrixMultiplication(vector<vector<double>> a, vector<vector<double>> b)
+{
+	int ar = a.size();
+	int ac = a[0].size();
+	int br = b.size();
+	int bc = b[0].size();
+	if (ac != br)
+	{
+		printf("定義不能");
+		exit(-1);
+	}
+	vector<vector<double>> res(ar, vector<double>(bc));
+	for (int i = 0; i < ar; i++)
+	{
+		for (int j = 0; j < bc; j++)
+		{
+			double tmp = 0;
+			for (int k = 0; k < ac; k++)
+				tmp += a[i][k] * b[k][j];
+			res[i][j] = tmp;
+		}
+	}
+	return (res);
 }
