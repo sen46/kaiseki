@@ -1,10 +1,9 @@
 #ifndef LinearAlgebra_hpp
 # define LinearAlgebra_hpp
 
-// #include <stdio.h>
-#include <vector>
 #include <cmath>
 #include <cstdio>
+#include <vector>
 
 using namespace std;
 
@@ -30,7 +29,7 @@ double			MatrixNorm1(vector<vector<double>> vec);
 double			MatrixNormInfinity(vector<vector<double>> vec);
 // 後退代入
 vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b);
-// 
+// ガウス消去法
 vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec);
 
 #endif

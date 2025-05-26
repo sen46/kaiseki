@@ -3,6 +3,7 @@
 using vd=vector<double>;
 using vvd=vector<vd>;
 
+// 前進消去法、後退代入が正しいかどうかの検証
 int main()
 {
 	int n = 3;

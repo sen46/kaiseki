@@ -124,9 +124,7 @@ vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b)
 		x[i] = b[i];
 		double tmp = 0;
 		for (int j = N - 1; j >= i + 1; j--)
-		{
 			tmp += A[i][j] * x[j];
-		}
 		x[i] -= tmp;
 		x[i] = x[i] / A[i][i];
 	}
@@ -149,9 +147,7 @@ vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double>
 		{
 			alpha = A[i][k] / A[k][k];
 			for (int j = k; j < n; j++)
-			{
 				A[i][j] -= alpha * A[k][j];
-			}
 			b[i] -= alpha * b[k];
 		}
 	}
