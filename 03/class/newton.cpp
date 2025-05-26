@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <cmath>
 
+// Newton公式
+// x_(k+1) = x_k - f(x_k) / f'(x_k)
 double f(double x)
 {
 	return (2 * x * x * x - 3 * x - exp(x));
@@ -21,14 +23,12 @@ void NewtonMethod(double x0)
 
 	for (int i = 0; i < M; i++)
 	{
-		// 以下の部分が黒塗りとして与えられている
 		x_n[i + 1] = x_n[i] - f(x_n[i]) / df(x_n[i]);
 		if (f(x_n[i + 1]) < epsilon && -epsilon < f(x_n[i + 1]))
 		{
 			printf("x_n[0] = %.2fのとき、x_[%d] = %.12e\n", x0, i + 1, x_n[i + 1]);
 			return ;
 		}
-		// 黒塗りここまで
 	}
 	printf("収束しない\n");
 }
