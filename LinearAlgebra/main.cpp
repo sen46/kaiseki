@@ -1,0 +1,31 @@
+#include "LinearAlgebra.hpp"
+
+using vd=vector<double>;
+using vvd=vector<vd>;
+
+int main()
+{
+	int n = 3;
+	vd b(n);
+	vvd a(n, vd(n));
+
+	for (int i = 0; i < n; i++)
+	{
+		b[i] = 1;
+		for (int j = 0; j < n; j++)
+		{
+			a[i][j] = -1;
+			if (i == j)
+				a[i][j] = 3;
+		}
+	}
+
+	printf("A=");
+	PrintMatrix(a);
+	printf("b=");
+	PrintVector(b);
+	vd x(n);
+	x = GaussianElimination(a, b);
+	printf("x=");
+	PrintVector(x);
+}

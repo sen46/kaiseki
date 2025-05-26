@@ -112,3 +112,57 @@ double	MatrixNormInfinity(vector<vector<double>> vec)
 	}
 	return (norm);
 }
+
+vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b)
+{
+	int N;
+
+	N = b.size();
+	vector<double> x(N);
+	for (int i = N - 1; i >= 0; i--)
+	{
+		x[i] = b[i];
+		double tmp = 0;
+		for (int j = N - 1; j >= i + 1; j--)
+		{
+			tmp += A[i][j] * x[j];
+		}
+		x[i] -= tmp;
+		x[i] = x[i] / A[i][i];
+	}
+	return (x);
+}
+
+vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec)
+{
+	int n = Vec.size();
+	vector<vector<double>> A(n, vector<double>(n));
+	vector<double> b(n);
+	A = Matrix;
+	b = Vec;
+
+	double alpha = 0;
+
+	for (int k = 0; k < n - 1; k++)
+	{
+		for (int i = k + 1; i < n; i++)
+		{
+			alpha = A[i][k] / A[k][k];
+			for (int j = k; j < n; j++)
+			{
+				A[i][j] -= alpha * A[k][j];
+			}
+			b[i] -= alpha * b[k];
+		}
+	}
+
+	printf("前進消去\nA=");
+	PrintMatrix(A);
+	printf("b=");
+	PrintVector(b);
+
+	printf("後退代入\n");
+	vector<double> x(n);
+	x = BackwardSubstitution(A, b);
+	return (x);
+}
