@@ -1,5 +1,4 @@
 #include "LinearAlgebra.hpp"
-#include <cstdlib>
 
 void	PrintVector(vector<double> vec)
 {
@@ -26,20 +25,20 @@ vector<double>	VectorSubstract(vector<double> vec1, vector<double> vec2)
 	return (vec1);
 }
 
-
 vector<double>	ResidualError(vector<vector<double>> A, vector<double> x, vector<double> b)
 {
 	vector<double>	Ax;
 
 	Ax = MatrixVector(A, x);
 	for (int i = 0; i < (int)Ax.size(); i++)
-		Ax[i] -= b[i]; return (Ax);
+		Ax[i] -= b[i];
+	return (Ax);
 }
 
 vector<double>	MatrixVector(vector<vector<double>> A, vector<double> x)
 {
-	unsigned long	n;
-	vector<double>	res;
+	int				n;
+	vector<double>	res((int)x.size());
 
 	n = A.size();
 	for (int i = 0; i < n; i++)

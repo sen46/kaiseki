@@ -18,14 +18,14 @@ vector<double>	MatrixVector(vector<vector<double>> A, vector<double> x);
 // Ax - b
 vector<double>	ResidualError(vector<vector<double>> A, vector<double> x, vector<double> b);
 // ベクトルの1ノルム
-double			vectorNorm1(vector<double> vec);
+double			VectorNorm1(vector<double> vec);
 // ベクトルの2ノルム
 double			VectorNorm2(vector<double> vec);
 // ベクトルの無限ノルム
 double			VectorNormInfinity(vector<double> vec);
 // 行列の1ノルム
 double			MatrixNorm1(vector<vector<double>> vec);
-// 行列の2ノルム
+// 行列の無限ノルム
 double			MatrixNormInfinity(vector<vector<double>> vec);
 // 後退代入
 vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b);
