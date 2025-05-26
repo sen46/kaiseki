@@ -3,8 +3,7 @@
 
 using namespace std;
 
-// めんどくさいので処理の部分だけしか作っていません
-// メイン関数は自分で書いてください
+// めんどくさいからメイン関数書いてない
 
 // (1) 平均より大きいものを出力
 void	func1(vector<double> vec)
@@ -25,7 +24,7 @@ void	func1(vector<double> vec)
 void	func2(void)
 {
 	vector<int> x(101);
-	x[0] = 0;
+	x[0] = 1;
 	x[1] = 1;
 
 	for (int i = 1; i < 100; i++)
@@ -48,5 +47,5 @@ void	func3(vector<double> a)
 		cout << x << "\t";
 }
 
-// (4) 日本語の意味が理解できませんでした
+// (4) 力不足でできませんでした
 // void	func4()
