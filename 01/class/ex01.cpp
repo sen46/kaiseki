@@ -1,4 +1,4 @@
-// 授業内課題
+// 授業スライド19ページ
 #include <stdio.h>
 #include <vector>
 
