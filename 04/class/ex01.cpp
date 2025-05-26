@@ -1,9 +1,11 @@
-// スライド8枚目くらいの問題
+// スライド9枚目くらいの問題
 #include <cmath>
 #include <cstdio>
 #include <vector>
 using namespace std;
 
+// secant 公式
+// x_(k+1) = x_(k) - f(x_k) * (x_k - x_(k-1)) / (f(x_k) - f(x_(k-1)))
 double f(double x)
 {
 	double res = 2 * x * x * x - 3 * x - exp(x);
