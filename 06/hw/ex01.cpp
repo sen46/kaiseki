@@ -30,6 +30,7 @@ vector<double>	b_init()
 	}
 	return (b);
 }
+
 int main()
 {
 	vector<vector<double>> A = A_init();
