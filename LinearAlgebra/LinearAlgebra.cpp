@@ -85,7 +85,7 @@ double	MatrixNorm1(vector<vector<double>> vec)
 {
 	double	norm;
 	double	x;
-	size_t	n;
+	int		n;
 
 	norm = 0;
 	n = vec.size();
