@@ -136,10 +136,8 @@ vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b)
 vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec)
 {
 	int n = Vec.size();
-	vector<vector<double>> A(n, vector<double>(n));
-	vector<double> b(n);
-	A = Matrix;
-	b = Vec;
+	vector<vector<double>> A = Matrix;
+	vector<double> b = Vec;
 
 	double alpha = 0;
 
