@@ -62,6 +62,8 @@ double	VectorNorm1(vector<double> vec)
 double	VectorNorm2(vector<double> vec)
 {
 	double	norm;
+
+	norm = 0;
 	for (int i = 0; i < (int)vec.size(); i++)
 		norm += vec[i] * vec[i];
 	norm = sqrtf(norm);
@@ -75,7 +77,7 @@ double	VectorNormInfinity(vector<double> vec)
 
 	norm = 0;
 	for (int i = 0; i < (int)vec.size(); i++)
-		norm = max(norm, vec[i]);
+		norm = max(norm, fabs(vec[i]));
 	return (norm);
 }
 
@@ -91,7 +93,7 @@ double	MatrixNorm1(vector<vector<double>> vec)
 	{
 		x = 0;
 		for (int j = 0; j < n; j++)
-			x += vec[j][i];
+			x += fabs(vec[j][i]);
 		norm = max(norm, x);
 	}
 	return (norm);
