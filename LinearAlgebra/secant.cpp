@@ -1,7 +1,5 @@
-// スライド9枚目くらいの問題
 #include <cmath>
 #include <cstdio>
-#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -20,12 +18,12 @@ double secantff(double x_k, double x_k_1)
 	return (res1 / res2);
 }
 
-int main()
+void	Secant_method(double a0, double a1)
 {
 	int M = 50;
 	vector<double> x(M + 1);
-	x[0] = 4;
-	x[1] = 3.5;
+	x[0] = a0;
+	x[1] = a1;
 
 	double epsilon = 1e-12;
 	for (int i = 0; i < M; i++)
@@ -37,5 +35,10 @@ int main()
 			break;
 		}
 	}
-	return (0);
+}
+
+int main()
+{
+	// 一つ目の引数が0項目(初期値)、2つ目の引数が1項目(初期値)
+	Secant_method(0, 1);
 }
