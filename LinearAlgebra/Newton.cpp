@@ -34,7 +34,7 @@ void NewtonMethod(double x0)
 
 int main()
 {
+	// 初期値が引数となる
 	NewtonMethod(4.0);
-	// NewtonMethod(1.0);
 	return (0);
 }
