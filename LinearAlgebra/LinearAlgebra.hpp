@@ -31,6 +31,8 @@ double			MatrixNormInfinity(vector<vector<double>> vec);
 vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b);
 // ガウス消去法
 vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec);
+// LU分解
+vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec);
 
 // 自分が必要としたもの
 // 行列の積

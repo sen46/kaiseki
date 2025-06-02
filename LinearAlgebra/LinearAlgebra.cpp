@@ -187,3 +187,40 @@ vector<vector<double>>	MatrixMultiplication(vector<vector<double>> a, vector<vec
 	}
 	return (res);
 }
+
+vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec)
+{
+	int N = (int)Vec.size();
+	vector<vector<double>> A = Matrix;
+	vector<double> b = Vec;
+
+	double alpha = 0;
+	for (int k = 0; k < N - 1; k++)
+	{
+		for (int i = k + 1; i < N; i++)
+		{
+			alpha = A[i][k] / A[k][k];
+			A[i][k] = alpha;
+			for (int j = k + 1; j < N; j++)
+			{
+				A[i][j] = A[i][j] - alpha * A[k][j];
+			}
+		}
+	}
+
+	printf("LU分解行列\nA=");
+	PrintMatrix(A);
+
+	// 前進代入
+	vector<double> y(N);
+	y[0] = b[0];
+	for (int k = 1; k < N; k++)
+	{
+		y[k] = b[k];
+		for (int j = 0; j < k; j++)
+		{
+			y[k] -= A[k][j] * y[j];
+		}
+	}
+	return (BackwardSubstitution(A, y));
+}
