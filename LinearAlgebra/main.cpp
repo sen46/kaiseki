@@ -1,33 +1,44 @@
-// ライブラリの使用方法
 #include "LinearAlgebra.hpp"
+#include <cstdio>
 
-using vd=vector<double>;
-using vvd=vector<vd>;
+const int n = 6;
 
-// 前進消去法、後退代入が正しいかどうかの検証
-int main()
+vector<vector<double>>	A_init()
 {
-	int n = 3;
-	vd b(n);
-	vvd a(n, vd(n));
-
+	vector<vector<double>>	A(n, vector<double> (n));
 	for (int i = 0; i < n; i++)
 	{
-		b[i] = 1;
 		for (int j = 0; j < n; j++)
 		{
-			a[i][j] = -1;
-			if (i == j)
-				a[i][j] = 3;
+			A[i][j] = 2 +  (n + j - i) % n;
 		}
 	}
+	printf("生成されたA=\n");
+	PrintMatrix(A);
+	printf("\n");
+	return (A);
+}
 
-	printf("A=");
-	PrintMatrix(a);
-	printf("b=");
+vector<double>	b_init()
+{
+	vector<double> b(n);
+	for (int i = 0; i < n; i++)
+	{
+		b[i] = i;
+	}
+	printf("生成されたb=\n");
 	PrintVector(b);
-	vd x(n);
-	x = GaussianElimination(a, b);
-	printf("x=");
+	printf("\n");
+	return (b);
+}
+
+int main()
+{
+	vector<vector<double>>	A = A_init();
+	vector<double>			b = b_init();
+
+	vector<double>			x = LUDecomposition(A, b);
+	printf("x=\n");
 	PrintVector(x);
+	return (0);
 }
