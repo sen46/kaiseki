@@ -5,13 +5,13 @@ using namespace std;
 
 // secant 公式
 // x_(k+1) = x_(k) - f(x_k) * (x_k - x_(k-1)) / (f(x_k) - f(x_(k-1)))
-double f(double x)
+static double f(double x)
 {
-	double res = 2 * x * x * x - 3 * x - exp(x);
+	double res = x * x * x + 6 * x + 4;
 	return (res);
 }
 
-double secantff(double x_k, double x_k_1)
+static double secantff(double x_k, double x_k_1)
 {
 	double res1 = x_k - x_k_1;
 	double res2 = f(x_k) - f(x_k_1);

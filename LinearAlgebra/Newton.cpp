@@ -3,14 +3,14 @@
 
 // Newton公式
 // x_(k+1) = x_k - f(x_k) / f'(x_k)
-double f(double x)
+static double f(double x)
 {
-	return (2 * x * x * x - 3 * x - exp(x));
+	return (exp(-x) + sin(4 * x) - 6 * x);
 }
 
-double df(double x)
+static double df(double x)
 {
-	return (6 * x * x - 3 - exp(x));
+	return (-exp(-x) + 4 * cos(4 * x) - 6);
 }
 
 void NewtonMethod(double x0)
