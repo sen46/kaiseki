@@ -7,3 +7,5 @@ class -> 授業内演習のPDF解答例
 hw -> 宿題の解答例
 
 self-study -> その週の自主課題の解答例
+
+LinearAlgebra -> 授業で制作したライブラリが入っている
