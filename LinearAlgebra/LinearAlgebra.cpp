@@ -3,7 +3,7 @@
 void	PrintVector(vector<double> vec)
 {
 	for (int i = 0; i < (int)vec.size(); i++)
-		printf("%.2e\t", vec[i]);
+		printf("%10.2e\t", vec[i]);
 	printf("\n");
 }
 
@@ -12,7 +12,7 @@ void	PrintMatrix(vector<vector<double>> vec)
 	for (int i = 0; i < (int)vec.size(); i++)
 	{
 		for (int j = 0; j < (int)vec[i].size(); j++)
-			printf("%.2e\t", vec[i][j]);
+			printf("%10.2e\t", vec[i][j]);
 		printf("\n");
 	}
 	printf("\n");
