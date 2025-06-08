@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-// secant 公式
+// Secant 公式
 // x_(k+1) = x_(k) - f(x_k) * (x_k - x_(k-1)) / (f(x_k) - f(x_(k-1)))
 static double f(double x)
 {
