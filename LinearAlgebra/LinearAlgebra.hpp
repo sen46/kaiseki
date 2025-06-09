@@ -33,6 +33,10 @@ vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b);
 vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec);
 // LU分解
 vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec);
+// Jacobi法
+vector<double>	JacobiMethod(vector<vector<double>> Matrix, vector<double> Vec);
+// GaussSeidel法
+vector<double>	GaussSeidelMethod(vector<vector<double>> Matrix, vector<double> Vec);
 
 // 自分が必要としたもの
 // 行列の積

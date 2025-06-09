@@ -117,10 +117,9 @@ double	MatrixNormInfinity(vector<vector<double>> vec)
 
 vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b)
 {
-	int N;
+	int				N = (int)b.size();
+	vector<double>	x(N);
 
-	N = b.size();
-	vector<double> x(N);
 	for (int i = N - 1; i >= 0; i--)
 	{
 		x[i] = b[i];
@@ -135,9 +134,9 @@ vector<double>	BackwardSubstitution(vector<vector<double>> A, vector<double> b)
 
 vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double> Vec)
 {
-	int n = Vec.size();
-	vector<vector<double>> A = Matrix;
-	vector<double> b = Vec;
+	int						n = Vec.size();
+	vector<vector<double>>	A = Matrix;
+	vector<double>			b = Vec;
 
 	double alpha = 0;
 
@@ -165,10 +164,10 @@ vector<double>	GaussianElimination(vector<vector<double>> Matrix, vector<double>
 
 vector<vector<double>>	MatrixMultiplication(vector<vector<double>> a, vector<vector<double>> b)
 {
-	int ar = a.size();
-	int ac = a[0].size();
-	int br = b.size();
-	int bc = b[0].size();
+	int	ar = a.size();
+	int	ac = a[0].size();
+	int	br = b.size();
+	int	bc = b[0].size();
 	if (ac != br)
 	{
 		printf("定義不能");
@@ -190,9 +189,9 @@ vector<vector<double>>	MatrixMultiplication(vector<vector<double>> a, vector<vec
 
 vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec)
 {
-	int N = (int)Vec.size();
-	vector<vector<double>> A = Matrix;
-	vector<double> b = Vec;
+	int						N = (int)Vec.size();
+	vector<vector<double>>	A = Matrix;
+	vector<double>			b = Vec;
 
 	double alpha = 0;
 	for (int k = 0; k < N - 1; k++)
@@ -202,9 +201,7 @@ vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec
 			alpha = A[i][k] / A[k][k];
 			A[i][k] = alpha;
 			for (int j = k + 1; j < N; j++)
-			{
 				A[i][j] = A[i][j] - alpha * A[k][j];
-			}
 		}
 	}
 
@@ -218,9 +215,83 @@ vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec
 	{
 		y[k] = b[k];
 		for (int j = 0; j < k; j++)
-		{
 			y[k] -= A[k][j] * y[j];
-		}
 	}
 	return (BackwardSubstitution(A, y));
+}
+
+vector<double>	JacobiMethod(vector<vector<double>> Matrix, vector<double> Vec)
+{
+	int				N = (int)Matrix.size();
+	int				M = 100;
+	double			epsilon = 1e-8;
+	double			error;
+	vector<double>	X_now(N);
+	vector<double>	X_pre(N);
+	X_now = Vec;
+	X_pre = Vec;
+
+	for (int m = 0; m < M; m++)
+	{
+		for (int i = 0; i < N; i++)
+		{
+			X_now[i] = Vec[i];
+			for (int j = 0; j < N; j++)
+			{
+				if (i != j)
+					X_now[i] -= Matrix[i][j] * X_pre[j];
+			}
+			X_now[i] /= Matrix[i][i];
+		}
+		error = VectorNormInfinity(VectorSubstract(X_now, X_pre)) / VectorNormInfinity(X_now);
+		if (error < epsilon)
+		{
+			printf("ヤコビ法の反復回数は%d回\n", m + 1);
+			PrintVector(X_now);
+			return (X_now);
+		}
+		else
+			X_pre = X_now;
+	}
+	printf("収束しません");
+	return (X_now);
+}
+
+vector<double>	GaussSeidelMethod(vector<vector<double>> Matrix, vector<double> Vec)
+{
+	int				N = (int)Matrix.size();
+	int				M = 100;
+	double			epsilon = 1e-8;
+	double			error;
+	vector<double>	X_now(N);
+	vector<double>	X_pre(N);
+	X_now = Vec;
+	X_pre = Vec;
+
+	for (int m = 0; m < M; m++)
+	{
+		for (int i = 0; i < N; i++)
+		{
+			X_now[i] = Vec[i];
+			for (int j = 0; j < N; j++)
+			{
+				if (j < i)
+					X_now[i] -= Matrix[i][j] * X_now[j];
+				else if (j > i)
+					X_now[i] -= Matrix[i][j] * X_pre[j];
+			}
+			X_now[i] /= Matrix[i][i];
+		}
+		error = VectorNormInfinity(VectorSubstract(X_now, X_pre)) / VectorNormInfinity(X_now);
+		if (error < epsilon)
+		{
+			printf("GS法の反復回数は%d回\n", m + 1);
+			PrintVector(X_now);
+			return (X_now);
+		}
+		else
+			X_pre = X_now;
+	}
+	printf("収束しません");
+	return (X_now);
 }
