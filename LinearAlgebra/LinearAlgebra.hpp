@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <cstdio>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -38,7 +39,8 @@ vector<double>	JacobiMethod(vector<vector<double>> Matrix, vector<double> Vec);
 // GaussSeidel法
 vector<double>	GaussSeidelMethod(vector<vector<double>> Matrix, vector<double> Vec);
 
-// 自分が必要としたもの
+// 追加
 // 行列の積
 vector<vector<double>>	MatrixMultiplication(vector<vector<double>> a, vector<vector<double>> b);
+
 #endif
