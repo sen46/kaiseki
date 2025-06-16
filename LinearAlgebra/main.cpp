@@ -5,26 +5,13 @@ using vvd = vector<vector<double>>;
 
 int main()
 {
-	int n = 3;
-	vd a(n);
-	vvd A(n, vd(n));
-
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = 1;
-		for (int j = 0; j < n; j++)
-		{
-			if (i == j)
-				A[i][j] = 4;
-			else
-				A[i][j] = -1;
-		}
-	}
-	printf("a= \n");
-	PrintVector(a);
-	printf("A= \n");
-	PrintMatrix(A);
-	JacobiMethod(A, a);
-	GaussSeidelMethod(A, a);
+	vvd a = {
+		{1, 1, 0},
+		{1, 2, 1},
+		{2, 5, 3},
+	};
+	vd b = {1, 1, 1};
+	PowerMethod(a, b);
+	RayleighQuotient(a, b);
 	return (0);
 }

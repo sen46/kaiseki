@@ -295,3 +295,91 @@ vector<double>	GaussSeidelMethod(vector<vector<double>> Matrix, vector<double> V
 	printf("収束しません");
 	return (X_now);
 }
+double			PowerMethod(vector<vector<double>> a, vector<double> b)
+{
+	int				N = (int)b.size();
+	int				M = 100;
+	double			epsilon = 1e-8;
+	double			Lambda_pre = 0;
+	double			Lambda_now = 0;
+	vector<double>	x_pre = b;
+	vector<double>	x_now = b;
+	double			norm;
+
+	for (int i = 0; i < M; i++)
+	{
+		norm = VectorNorm2(x_pre);
+		for (int j = 0; j < N; j++)
+			x_pre[j] /= norm;
+		x_now = MatrixVector(a, x_pre);
+		for (int l = 0; l < N; l++)
+		{
+			if (x_pre[l] != 0)
+			{
+				Lambda_now = x_now[l] / x_pre[l];
+				break;
+			}
+		}
+		if (fabs((Lambda_now - Lambda_pre) / Lambda_now) < epsilon)
+		{
+			printf("冪乗法の反復回数は%d回\n", i + 1);
+			printf("絶対値最大の固有値は%.8e\n", Lambda_now);
+			printf("固有ベクトルは");
+			PrintVector(x_now);
+			return (Lambda_now);
+		}
+		else
+		{
+			Lambda_pre = Lambda_now;
+			x_pre = x_now;
+		}
+	}
+	printf("収束しません");
+	return (Lambda_now);
+}
+
+double			RayleighQuotient(vector<vector<double>> a, vector<double> b)
+{
+	int				N = (int)b.size();
+	int				M = 100;
+	double			epsilon = 1e-8;
+	double			Lambda_pre = 0;
+	double			Lambda_now = 0;
+	vector<double>	x_pre = b;
+	vector<double>	x_now = b;
+	double			norm;
+	double			u;
+	double			d;
+
+	for (int i = 0; i < M; i++)
+	{
+		norm = VectorNorm2(x_pre);
+		for (int j = 0; j < N; j++)
+			x_pre[j] /= norm;
+		x_now = MatrixVector(a, x_pre);
+		Lambda_now = 0;
+		u = 0;
+		d = 0;
+		for (int j = 0; j < N; j++)
+		{
+			u += x_pre[j] * x_now[j];
+			d += x_pre[j] * x_pre[j];
+		}
+		Lambda_now = u / d;
+		if (fabs((Lambda_now - Lambda_pre) / Lambda_now) < epsilon)
+		{
+			printf("レイリー商の反復回数は%d回\n", i + 1);
+			printf("絶対値最大の固有値は%.8e\n", Lambda_now);
+			printf("固有ベクトルは");
+			PrintVector(x_now);
+			return (Lambda_now);
+		}
+		else
+		{
+			Lambda_pre = Lambda_now;
+			x_pre = x_now;
+		}
+	}
+	printf("収束しません");
+	return (Lambda_now);
+}

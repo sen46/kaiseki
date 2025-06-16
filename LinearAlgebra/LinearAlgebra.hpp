@@ -38,6 +38,10 @@ vector<double>	LUDecomposition(vector<vector<double>> Matrix, vector<double> Vec
 vector<double>	JacobiMethod(vector<vector<double>> Matrix, vector<double> Vec);
 // GaussSeidel法
 vector<double>	GaussSeidelMethod(vector<vector<double>> Matrix, vector<double> Vec);
+// 冪乗法
+double			PowerMethod(vector<vector<double>> a, vector<double> b);
+// レイリー商
+double			RayleighQuotient(vector<vector<double>> a, vector<double> b);
 
 // 追加
 // 行列の積
