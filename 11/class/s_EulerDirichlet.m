@@ -1,4 +1,4 @@
-function s_EulerDirichlet(n)
+% function s_EulerDirichlet(n)
 a = 0;
 b = 1;
 h = 0.01;
@@ -20,6 +20,8 @@ for i = 1 : N - 1
 		end
 	end
 end
+% A(N, N) = 1;
+% A(N, N - 1) = -1;
 
 for i = 1 : N - 2
 	w(i) = h * h * r(i);
