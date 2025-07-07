@@ -1,7 +1,5 @@
-% function U = ex04(n, m)
+function U = ex04(n, m)
 
-    n = 50;
-    m = 30;
 	% 位置の刻み幅
 	h = 1 / n;
 	% 時間の刻み幅

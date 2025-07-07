@@ -1,7 +1,5 @@
-% function U = ex02(n, m)
+function U = ex02(n, m)
 
-	n = 100;
-	m = 50000;
 	% 位置の刻み幅
 	h = 1 / n;
 	% 時間の刻み幅
