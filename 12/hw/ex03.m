@@ -21,7 +21,7 @@ function U = ex03(n, m)
 	for j = 1 : m
 		for i = 1 : n + 1
 			if (i == 1 || i == n + 1)
-				U(i, j) = 0;
+				U(i, j + 1) = 0;
 			else
 				U(i, j + 1) = r * U(i - 1, j) + (1 - 2 * r) * U(i, j) + r * U(i + 1, j);
 			end
