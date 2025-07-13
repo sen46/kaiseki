@@ -12,7 +12,7 @@ function U = ex01(n, m)
 	% 時間が0のときの初期条件
 	for i = 2 : n
 		x = (i - 1) * h;
-		U(i, 1) = sin(2 * pi * x);
+		U(i, 1) = sin(x  * 2 * pi);
 	end
 	U(1, 1) = 0;
 	U(n + 1, 1) = 0;

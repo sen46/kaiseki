@@ -1,3 +1,6 @@
 *.pdf
 *.dSYM
 *.a
+.vscode/
+report/
+test/
