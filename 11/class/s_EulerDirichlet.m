@@ -20,14 +20,13 @@ for i = 1 : N - 1
 		end
 	end
 end
-% A(N, N) = 1;
-% A(N, N - 1) = -1;
 
 for i = 1 : N - 2
-	w(i) = h * h * r(i);
+	w(i) = h * h * r(i + 1);
 end
 
-w(N - 1) = 0;
+w(1) = h^2 * r(2) - alpha;
+w(N - 1) = h^2 * r(N) - beta;
 
 y = A \ w;
 y = vertcat(alpha, y, beta)
